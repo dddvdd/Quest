@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+  body { @apply m-0 min-w-[320px] bg-slate-50 text-slate-900; }
+  button, input, select, textarea { font: inherit; }
+}
+
+/* ============================================================
+   Dark theme - app-wide. Remaps the shared Tailwind slate/violet/
+   status vocabulary to a calm near-black palette whenever <html>
+   carries .dark (set centrally by ThemeToggle + index.html).
+   ============================================================ */
+.dark {
+  color-scheme: dark;
+}
+.dark body {
+  background-color: #0d0f12;
+  color: #f0f2f5;
+}
+.dark,
+.dark * {
+  transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+}
+
+/* Surfaces */
+.dark .bg-white { background-color: #15181c; }
+.dark .bg-white\/95 { background-color: rgb(21 24 28 / 0.95); }
+.dark .bg-slate-50 { background-color: #0d0f12; }
+.dark .bg-slate-50\/60 { background-color: rgba(13, 15, 18, .6); }
+.dark .bg-slate-50\/70 { background-color: rgba(13, 15, 18, .7); }
+.dark .bg-slate-100 { background-color: #1c2026; }
+.dark .bg-slate-200 { background-color: #232830; }
+.dark .hover\:bg-slate-50:hover { background-color: #171b20; }
+.dark .hover\:bg-slate-100:hover { background-color: #1c2026; }
+.dark .bg-blue-50 { background-color: #111d2d; }
+.dark .bg-blue-100\/60 { background-color: rgba(26, 41, 56, 0.75); }
+.dark .hover\:bg-blue-100\/60:hover { background-color: rgba(26, 41, 56, 0.8); }
+.dark .bg-violet-50 { background-color: #1a1629; }
+.dark .bg-violet-100\/60 { background-color: rgba(41, 32, 56, 0.78); }
+.dark .hover\:bg-violet-100\/60:hover { background-color: rgba(41, 32, 56, 0.85); }
+
+/* Text */
+.dark .text-slate-900 { color: #f0f2f5; }
+.dark .text-slate-800 { color: #e3e7ec; }
+.dark .text-slate-700 { color: #c3cad3; }
+.dark .text-slate-600 { color: #a0a9b4; }
+.dark .text-slate-500 { color: #7d8692; }
+.dark .text-slate-400 { color: #667080; }
+.dark .text-slate-300 { color: #4c5560; }
+.dark input::placeholder,
+.dark textarea::placeholder { color: #667080; opacity: 1; }
+
+/* Borders, rings, dividers */
+.dark .border-slate-100 { border-color: #1d2229; }
+.dark .border-slate-200 { border-color: #262b32; }
+.dark .border-slate-300 { border-color: #333a43; }
+.dark .border-blue-200 { border-color: #29415d; }
+.dark .border-violet-200 { border-color: #3c2d5f; }
+.dark .ring-slate-200 { --tw-ring-color: #262b32; }
+.dark .divide-slate-100 > :not([hidden]) ~ :not([hidden]) { border-color: #1d2229; }
+.dark .divide-slate-200 > :not([hidden]) ~ :not([hidden]) { border-color: #262b32; }
+
+/* Violet accents stay brand; lift contrast for text on dark */
+.dark .bg-purple-50 { background-color: #21182d; }
+.dark .ring-purple-100 { --tw-ring-color: #3b2850; }
+.dark .text-purple-800 { color: #d8b4fe; }
+.dark .bg-purple-700 { background-color: #7e22ce; }
+.dark .text-violet-700 { color: #a78bfa; }
+.dark .hover\:bg-violet-800:hover { background-color: #6d28d9; }
+
+/* Status tints - amber (pending/correction) */
+.dark .bg-amber-50 { background-color: #27200f; }
+.dark .bg-amber-50\/70 { background-color: rgba(39, 32, 15, .7); }
+.dark .bg-amber-100 { background-color: #3a2f14; }
+.dark .text-amber-900 { color: #eed9a4; }
+.dark .text-amber-800 { color: #e4c67e; }
+.dark .text-amber-700 { color: #d9b35c; }
+.dark .text-amber-600 { color: #cba64a; }
+.dark .text-amber-500 { color: #d9b35c; }
+.dark .border-amber-200 { border-color: #4a3d1c; }
+.dark .border-amber-300 { border-color: #57482a; }
+
+/* Status tints - emerald (approved/live/success) */
+.dark .bg-emerald-50 { background-color: #10201a; }
+.dark .bg-emerald-50\/40 { background-color: rgba(16, 32, 26, .4); }
+.dark .bg-emerald-100 { background-color: #16311f; }
+.dark .text-emerald-800 { color: #93d8ae; }
+.dark .text-emerald-700 { color: #84d0a2; }
+.dark .text-emerald-600 { color: #6fc892; }
+.dark .border-emerald-200 { border-color: #1f4030; }
+.dark .border-emerald-300 { border-color: #27503a; }
+
+/* Status tints - red (rejected/error) */
+.dark .bg-red-50 { background-color: #291416; }
+.dark .bg-red-50\/40 { background-color: rgba(41, 20, 22, .4); }
+.dark .bg-red-100 { background-color: #38191c; }
+.dark .text-red-800 { color: #f0a5a8; }
+.dark .text-red-700 { color: #ee9599; }
+.dark .text-red-600 { color: #ef888c; }
+.dark .text-red-500 { color: #f2777c; }
+.dark .border-red-200 { border-color: #4a2226; }
+.dark .border-red-300 { border-color: #59292e; }
+
+/* Status tints - blue (informational) */
+.dark .bg-blue-50 { background-color: #131e2a; }
+.dark .bg-blue-100 { background-color: #1a2938; }
+.dark .text-blue-800 { color: #96c8ee; }
+.dark .text-blue-700 { color: #83bce9; }
+.dark .text-blue-900 { color: #a9cdee; }
+.dark .text-emerald-900 { color: #a5dfb8; }
+.dark .text-red-900 { color: #f3b8bb; }
+.dark .border-blue-200 { border-color: #24394e; }
+.dark .border-blue-300 { border-color: #2d4761; }
+
+/* Neutral chips & buttons */
+.dark .bg-slate-800 { background-color: #2a3038; }
+.dark .hover\:bg-slate-700:hover { background-color: #343b45; }
+
+/* Role tokens - lift contrast on dark surfaces */
+.dark .text-role-medical { color: #34d399; }
+.dark .text-role-employer { color: #a78bfa; }
+.dark .text-role-supervisor { color: #f9a8d4; }
+.dark .text-role-admin { color: #f87171; }
+
+/* Browser surfaces carry the design too */
+.dark ::selection { background-color: rgba(139, 92, 246, .35); }
+
+/* ============================================================
+   Pixel visual system - PPESO design foundation utilities.
+   Stepped borders and hard pixel shadows are earned by the
+   committed 2D pixel-art world; use sparingly.
+   ============================================================ */
+.pixel-shadow { box-shadow: 4px 4px 0 0 rgb(15 23 42 / 0.9); }
+.dark .pixel-shadow { box-shadow: 4px 4px 0 0 rgb(0 0 0 / 0.6); }
+.pixel-shadow-sm { box-shadow: 2px 2px 0 0 rgb(15 23 42 / 0.9); }
+.dark .pixel-shadow-sm { box-shadow: 2px 2px 0 0 rgb(0 0 0 / 0.6); }
+
+/* Subtle grid backdrop for selected sections only */
+.pixel-grid-bg {
+  background-image:
+    linear-gradient(to right, rgb(148 163 184 / 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(148 163 184 / 0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.crisp { shape-rendering: crispEdges; image-rendering: pixelated; }
+
+/* Restrained motion; respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .motion-float { animation: none !important; }
+  .dark,
+  .dark *,
+  .theme-site * { transition: none !important; }
+}
+
+@keyframes pixel-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+.motion-float { animation: pixel-float 3.2s steps(4, end) infinite; }
+
+/* ============================================================
+   Scanner (/staff/scanner) - html5-qrcode video fill + pixel FX.
+   The library sets inline sizes on <video>; !important wins so the
+   feed fills the fixed-height mobile viewport with object-fit cover.
+   ============================================================ */
+.scanner-shell video { width: 100% !important; height: 100% !important; object-fit: cover; }
+
+@keyframes pixel-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+.pixel-blink { animation: pixel-blink 1.1s steps(1, end) infinite; }
+
+/* Stepped scanline sweep inside the yellow corner frame */
+@keyframes pixel-scanline {
+  from { top: 10%; }
+  to { top: 86%; }
+}
+.pixel-scanline { animation: pixel-scanline 2.6s steps(12, end) infinite alternate; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pixel-blink, .pixel-scanline { animation: none !important; }
+}
